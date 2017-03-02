@@ -39,8 +39,12 @@ class ViewController: UIViewController {
   }
   
   func displayChoices() {
+    var choiceIndex: Int = 0
+    let currentChallenge = quiz.challenges[challengeIndex]
+  
     for button in choiceButtons {
-      button.setTitle(quiz.challenges[challengeIndex].answerText, for: .normal)
+      button.setTitle(currentChallenge.choiceTexts[choiceIndex], for: .normal)
+      choiceIndex += 1
     }
   }
 }

@@ -101,10 +101,7 @@
                         <outletCollection property="choiceButtons" destination="BlU-2t-4yl" collectionClass="NSMutableArray" id="2ug-dC-MKC"/>
                         <outletCollection property="choiceButtons" destination="50N-6J-f56" collectionClass="NSMutableArray" id="xIS-Ck-Ub7"/>
                         <outletCollection property="choiceButtons" destination="Y0v-kk-XI4" collectionClass="NSMutableArray" id="LaL-Hu-fyC"/>
-                        <outletCollection property="choiceButtons" destination="50N-6J-f56" collectionClass="NSMutableArray" id="zUD-gu-dBZ"/>
-                        <outletCollection property="choiceButtons" destination="Y0v-kk-XI4" collectionClass="NSMutableArray" id="gTE-Wf-uDE"/>
                         <outletCollection property="choiceButtons" destination="Lz7-v3-0iy" collectionClass="NSMutableArray" id="xZO-C6-oAK"/>
-                        <outletCollection property="choiceButtons" destination="BlU-2t-4yl" collectionClass="NSMutableArray" id="Z5v-Er-WUk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
