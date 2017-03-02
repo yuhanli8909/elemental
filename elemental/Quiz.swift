@@ -8,8 +8,9 @@
 
 struct Quiz {
   private let timerOn: Bool
-  private let numberOfQuestions: Int
-  private var numberCorrect: Int = 0
+  var numberOfQuestions: Int
+  
+  var numberCorrect: Int = 0
   var challenges: [Challenge] = []
   private let challenge = Challenge()
   

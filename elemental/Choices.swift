@@ -17,7 +17,7 @@ struct Choices {
   init() {
     // Get random Element and assign to answer
     self.answer = periodicTable.getRandom()
-    self.numberOfIncorrect = (GKRandomSource.sharedRandom().nextInt(upperBound: 2)) + 2
+    self.numberOfIncorrect = 3
     self.allChoices.append(answer)
     fillChoices()
     shuffleChoices()
