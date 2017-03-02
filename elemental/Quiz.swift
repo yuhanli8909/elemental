@@ -9,12 +9,14 @@
 struct Quiz {
   private let timerOn: Bool
   private let numberOfQuestions: Int
-  private var challenges: [Challenge] = []
+  private var numberCorrect: Int = 0
+  var challenges: [Challenge] = []
   private let challenge = Challenge()
   
   init(timer timerOn: Bool, questions numberOfQuestions: Int) {
     self.timerOn = timerOn
     self.numberOfQuestions = numberOfQuestions
+    fillChallenges()
   }
   
   mutating func fillChallenges() {

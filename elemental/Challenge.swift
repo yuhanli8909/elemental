@@ -19,24 +19,31 @@ enum QuestionType: String {
 
 
 struct Challenge {
-  private let answer: Element
-  private let choices: Choices = Choices()
+  let answer: Element
+  let choices: Choices = Choices()
   let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
 
   private var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
-  private let questionText: String
-  private var answerText: String
-  private let questionTypeText: String
+  let questionText: String
+  var answerText: String
+  var choiceTexts: [String] = []
+  let questionTypeText: String
   
   init() {
     self.answer = choices.answer
     questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
     answerText = Challenge.getAnswerString(questionType: questionType, answer: answer)
-    questionText = Challenge.getQuestionTypeText(questionType: questionType)
-    answerText = Challenge.getAnswerString(questionType: questionType, answer: answer)
+    questionText = Challenge.getQuestionString(questionType: questionType, answer: answer)
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
+    fillChoiceText()
   }
   
+  mutating func fillChoiceText() {
+    for choice in choices.allChoices {
+      let choiceString = Challenge.getAnswerString(questionType: questionType, answer: choice)
+      choiceTexts.append(choiceString)
+    }
+  }
   
   static func getAnswerString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {

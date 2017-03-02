@@ -11,7 +11,7 @@ import GameKit
 struct Choices {
   let answer: Element
   private let numberOfIncorrect: Int
-  private var allChoices: [Element] = []
+  var allChoices: [Element] = []
   private let periodicTable = PeriodicTable()
   
   init() {
@@ -20,6 +20,7 @@ struct Choices {
     self.numberOfIncorrect = (GKRandomSource.sharedRandom().nextInt(upperBound: 2)) + 2
     self.allChoices.append(answer)
     fillChoices()
+    shuffleChoices()
   }
   
   
@@ -28,6 +29,10 @@ struct Choices {
     for _ in 1...numberOfIncorrect {
       self.allChoices.append(self.periodicTable.getRandom())
     }
+  }
+  
+  mutating func shuffleChoices() {
+    allChoices = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allChoices) as! [Element]
   }
 }
 
