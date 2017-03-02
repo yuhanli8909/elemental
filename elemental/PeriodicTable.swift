@@ -9,8 +9,8 @@
 import Foundation
 import GameKit
 
-struct PeriodicTable {
-  var periodicTable: [Element] = []
+class PeriodicTable {
+  private var periodicTable: [Element] = []
   
   init(){
     periodicTable.append(Element("Hydrogen", 1, atomicSymbol: "H"))
