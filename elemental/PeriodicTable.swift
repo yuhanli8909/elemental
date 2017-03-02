@@ -31,6 +31,11 @@ struct PeriodicTable {
     periodicTable.append(Element("Chlorine", 17, atomicSymbol: "Cl"))
     periodicTable.append(Element("Argon", 18, atomicSymbol: "Ar"))
     periodicTable.append(Element("Potassium", 19, atomicSymbol: "K"))
-    periodicTable.append(Element("Calcium", 20, atomicSymbol: "C"))
+    periodicTable.append(Element("Calcium", 20, atomicSymbol: "Ca"))
+  }
+  
+  func getRandom() -> Element {
+    let randomIndex = GKRandomSource.sharedRandom().nextInt(upperBound: periodicTable.count)
+    return periodicTable[randomIndex]
   }
 }

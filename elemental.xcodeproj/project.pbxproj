@@ -14,6 +14,7 @@
 		A0C4E4951E64A81D00EC48E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C4E4931E64A81D00EC48E3 /* LaunchScreen.storyboard */; };
 		A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */; };
 		A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A91E6634DA00EC48E3 /* Element.swift */; };
+		A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AC1E66487800EC48E3 /* Choices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A0C4E4961E64A81D00EC48E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
 		A0C4E4A91E6634DA00EC48E3 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		A0C4E4AC1E66487800EC48E3 /* Choices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */,
 				A0C4E4A91E6634DA00EC48E3 /* Element.swift */,
+				A0C4E4AC1E66487800EC48E3 /* Choices.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				A0C4E48D1E64A81D00EC48E3 /* ViewController.swift in Sources */,
 				A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */,
 				A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */,
+				A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */,
 				A0C4E48B1E64A81D00EC48E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
