@@ -13,9 +13,14 @@ class ViewController: UIViewController {
   @IBOutlet var choiceButtons: [UIButton]!
   @IBOutlet weak var challengeInformation: UILabel!
   @IBOutlet weak var challengeType: UILabel!
+  @IBOutlet weak var gameProgress: UILabel!
+
+  // Create an instance of quiz and set the current index of
+  // the collection of challenges to 0
   
   let quiz = Quiz(timer: false, questions: 5)
   let challengeIndex: Int = 0
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,6 +36,7 @@ class ViewController: UIViewController {
   func displayQuizInformation() {
     displayQuestionInformation()
     displayChoices()
+    displayGameProgress()
   }
   
   func displayQuestionInformation() {
@@ -46,6 +52,10 @@ class ViewController: UIViewController {
       button.setTitle(currentChallenge.choiceTexts[choiceIndex], for: .normal)
       choiceIndex += 1
     }
+  }
+  
+  func displayGameProgress() {
+    gameProgress.text = "Correct: \(quiz.numberCorrect)/\(quiz.numberOfQuestions)"
   }
 }
 
