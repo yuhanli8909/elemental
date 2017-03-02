@@ -14,17 +14,34 @@ class ViewController: UIViewController {
   @IBOutlet weak var challengeInformation: UILabel!
   @IBOutlet weak var challengeType: UILabel!
   
+  let quiz = Quiz(timer: false, questions: 5)
+  let challengeIndex: Int = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    // Start game
+    displayQuizInformation()
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-
+  
+  func displayQuizInformation() {
+    displayQuestionInformation()
+    displayChoices()
+  }
+  
+  func displayQuestionInformation() {
+    challengeInformation.text = quiz.challenges[challengeIndex].questionText
+    challengeType.text = quiz.challenges[challengeIndex].questionTypeText
+  }
+  
+  func displayChoices() {
+    for button in choiceButtons {
+      button.setTitle(quiz.challenges[challengeIndex].answerText, for: .normal)
+    }
+  }
 }
 
