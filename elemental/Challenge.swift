@@ -54,7 +54,7 @@ struct Challenge {
     case .atomicSymbolToName:
       return answer.name
     case.atomicSymbolToAtomicNumber:
-      return String(answer.name)
+      return String(answer.atomicNumber)
     case .atomicNumberToName:
       return answer.name
     case.atomicNumberToAtomicSymbol:

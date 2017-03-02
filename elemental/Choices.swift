@@ -26,8 +26,12 @@ struct Choices {
   
   /// Fill the array containing possible choices with incorrect answers
   mutating func fillChoices() {
+    var randomElement = self.periodicTable.getRandom()
     for _ in 1...numberOfIncorrect {
-      self.allChoices.append(self.periodicTable.getRandom())
+      while(allChoices.contains(randomElement)){
+        randomElement = self.periodicTable.getRandom()
+      }
+      allChoices.append(randomElement)
     }
   }
   
