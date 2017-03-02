@@ -12,6 +12,11 @@
 		A0C4E4901E64A81D00EC48E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C4E48E1E64A81D00EC48E3 /* Main.storyboard */; };
 		A0C4E4921E64A81D00EC48E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C4E4911E64A81D00EC48E3 /* Assets.xcassets */; };
 		A0C4E4951E64A81D00EC48E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C4E4931E64A81D00EC48E3 /* LaunchScreen.storyboard */; };
+		A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */; };
+		A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A91E6634DA00EC48E3 /* Element.swift */; };
+		A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AC1E66487800EC48E3 /* Choices.swift */; };
+		A0C4E4AF1E680C1E00EC48E3 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */; };
+		A0C4E4B11E68836800EC48E3 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4B01E68836800EC48E3 /* Quiz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		A0C4E4911E64A81D00EC48E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0C4E4941E64A81D00EC48E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0C4E4961E64A81D00EC48E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
+		A0C4E4A91E6634DA00EC48E3 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		A0C4E4AC1E66487800EC48E3 /* Choices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
+		A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		A0C4E4B01E68836800EC48E3 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 		A0C4E4891E64A81D00EC48E3 /* elemental */ = {
 			isa = PBXGroup;
 			children = (
+				A0C4E4AB1E6634F100EC48E3 /* Sources */,
 				A0C4E48A1E64A81D00EC48E3 /* AppDelegate.swift */,
 				A0C4E48C1E64A81D00EC48E3 /* ViewController.swift */,
 				A0C4E48E1E64A81D00EC48E3 /* Main.storyboard */,
@@ -62,6 +73,18 @@
 				A0C4E4961E64A81D00EC48E3 /* Info.plist */,
 			);
 			path = elemental;
+			sourceTree = "<group>";
+		};
+		A0C4E4AB1E6634F100EC48E3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */,
+				A0C4E4A91E6634DA00EC48E3 /* Element.swift */,
+				A0C4E4B01E68836800EC48E3 /* Quiz.swift */,
+				A0C4E4AC1E66487800EC48E3 /* Choices.swift */,
+				A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */,
+			);
+			name = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C4E48D1E64A81D00EC48E3 /* ViewController.swift in Sources */,
+				A0C4E4AF1E680C1E00EC48E3 /* Challenge.swift in Sources */,
+				A0C4E4B11E68836800EC48E3 /* Quiz.swift in Sources */,
+				A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */,
+				A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */,
+				A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */,
 				A0C4E48B1E64A81D00EC48E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +325,7 @@
 				A0C4E49B1E64A81D00EC48E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
