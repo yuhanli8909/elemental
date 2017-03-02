@@ -9,7 +9,7 @@
 import GameKit
 
 struct Choices {
-  private let answer: Element
+  let answer: Element
   private let numberOfIncorrect: Int
   private var allChoices: [Element] = []
   private let periodicTable = PeriodicTable()

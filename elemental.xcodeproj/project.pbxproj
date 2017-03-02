@@ -15,6 +15,7 @@
 		A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */; };
 		A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A91E6634DA00EC48E3 /* Element.swift */; };
 		A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AC1E66487800EC48E3 /* Choices.swift */; };
+		A0C4E4AF1E680C1E00EC48E3 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
 		A0C4E4A91E6634DA00EC48E3 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		A0C4E4AC1E66487800EC48E3 /* Choices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
+		A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */,
 				A0C4E4A91E6634DA00EC48E3 /* Element.swift */,
 				A0C4E4AC1E66487800EC48E3 /* Choices.swift */,
+				A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C4E48D1E64A81D00EC48E3 /* ViewController.swift in Sources */,
+				A0C4E4AF1E680C1E00EC48E3 /* Challenge.swift in Sources */,
 				A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */,
 				A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */,
 				A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */,

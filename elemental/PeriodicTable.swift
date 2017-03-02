@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameKit
 
 struct PeriodicTable {
   var periodicTable: [Element] = []
