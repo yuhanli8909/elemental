@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet var choiceButtons: [UIButton]!
+  @IBOutlet weak var challengeInformation: UILabel!
+  @IBOutlet weak var challengeType: UILabel!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
