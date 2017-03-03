@@ -16,7 +16,7 @@ struct Choices {
   
   init() {
     // Get random Element and assign to answer
-    self.answer = periodicTable.getRandom()
+    self.answer = periodicTable.randomElement()
     self.numberOfIncorrect = 3
     self.allChoices.append(answer)
     fillChoices()
@@ -25,9 +25,14 @@ struct Choices {
   
   
   /// Fill the array containing possible choices with incorrect answers
+  
   mutating func fillChoices() {
+    var choiceElement = self.periodicTable.randomElement()
     for _ in 1...numberOfIncorrect {
-      self.allChoices.append(self.periodicTable.getRandom())
+      while(allChoices.contains(choiceElement)){
+        choiceElement = self.periodicTable.randomElement()
+      }
+      allChoices.append(choiceElement)
     }
   }
   

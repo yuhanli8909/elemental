@@ -19,32 +19,22 @@ enum QuestionType: String {
 
 
 struct Challenge {
-  let answer: Element
-  let choices: Choices = Choices()
-  let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
+  var answers = Answers()
+  private let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
 
   private var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
-  let questionText: String
+  var questionText: String = ""
+  var questionTypeText: String = ""
   var answerText: String
-  var choiceTexts: [String] = []
-  let questionTypeText: String
   
   init() {
-    self.answer = choices.answer
+    self.answers = Answers()
     questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
-    answerText = Challenge.getAnswerString(questionType: questionType, answer: answer)
-    questionText = Challenge.getQuestionString(questionType: questionType, answer: answer)
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
-    fillChoiceText()
+    questionText = Challenge.getQuestionString(questionType: questionType, answer: answers.correctAnswer)
+    answerText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
   }
-  
-  mutating func fillChoiceText() {
-    for choice in choices.allChoices {
-      let choiceString = Challenge.getAnswerString(questionType: questionType, answer: choice)
-      choiceTexts.append(choiceString)
-    }
-  }
-  
+
   static func getAnswerString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {
     case .nameToAtomicSymbol:
@@ -54,7 +44,7 @@ struct Challenge {
     case .atomicSymbolToName:
       return answer.name
     case.atomicSymbolToAtomicNumber:
-      return String(answer.name)
+      return String(answer.atomicNumber)
     case .atomicNumberToName:
       return answer.name
     case.atomicNumberToAtomicSymbol:
@@ -95,4 +85,10 @@ struct Challenge {
       return "Which atomic symbol is associated with the atomic number \(answer.atomicNumber)?"
     }
   }
+  
+  func randomChallenge() -> Challenge {
+    let tempChallenge = Challenge()
+    return tempChallenge
+  }
 }
+

@@ -35,7 +35,7 @@ class PeriodicTable {
     periodicTable.append(Element("Calcium", 20, atomicSymbol: "Ca"))
   }
   
-  func getRandom() -> Element {
+  func randomElement() -> Element {
     let randomIndex = GKRandomSource.sharedRandom().nextInt(upperBound: periodicTable.count)
     return periodicTable[randomIndex]
   }

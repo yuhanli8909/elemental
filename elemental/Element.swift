@@ -23,8 +23,6 @@ struct Element {
 extension Element: Equatable {
   static func == (lhs: Element, rhs: Element) -> Bool {
     return
-      lhs.name == rhs.name &&
-      lhs.atomicNumber == rhs.atomicNumber &&
-      lhs.atomicSymbol == rhs.atomicSymbol
+      lhs.name == rhs.name
   }
 }

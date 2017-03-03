@@ -17,8 +17,8 @@ class ViewController: UIViewController {
 
   // Create an instance of quiz and set the current index of
   // the collection of challenges to 0
-  
-  let quiz = Quiz(timer: false, questions: 5)
+
+  let quiz = Quiz()
   let challengeIndex: Int = 0
   
   
@@ -45,12 +45,19 @@ class ViewController: UIViewController {
   }
   
   func displayChoices() {
-    var choiceIndex: Int = 0
+   // var choiceIndex: Int = 0
     let currentChallenge = quiz.challenges[challengeIndex]
   
+    if quiz.challenge.answers.answerSet.count < choiceButtons.count {
+      if choiceButtons[0].titleLabel?.text == currentChallenge.answerText {
+        choiceButtons[1].isHidden = true
+      } else {
+        choiceButtons[0].isHidden = true
+      }
+    }
+    
     for button in choiceButtons {
-      button.setTitle(currentChallenge.choiceTexts[choiceIndex], for: .normal)
-      choiceIndex += 1
+        button.titleLabel?.text = currentChallenge.answerText
     }
   }
   
