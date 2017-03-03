@@ -25,29 +25,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "elemental/Choices.swift"
-            timestampString = "510190526.512873"
+            filePath = "elemental/Challenge.swift"
+            timestampString = "510239067.797513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "shuffleChoices()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "getQuestionString(questionType:answer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "elemental/Challenge.swift"
-            timestampString = "510194500.785164"
+            filePath = "elemental/ViewController.swift"
+            timestampString = "510239653.839372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "getQuestionString(questionType:answer:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "displayChoices()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

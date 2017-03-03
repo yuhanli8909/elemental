@@ -7,16 +7,17 @@
 //
 
 struct Quiz {
-  private let timerOn: Bool
+  private var timerOn: Bool
   var numberOfQuestions: Int
   
   var numberCorrect: Int = 0
   var challenges: [Challenge] = []
-  private let challenge = Challenge()
+  private(set) var challenge: Challenge
   
-  init(timer timerOn: Bool, questions numberOfQuestions: Int) {
-    self.timerOn = timerOn
-    self.numberOfQuestions = numberOfQuestions
+  init() {
+    self.numberOfQuestions = 5
+    self.timerOn = false
+    challenge = Challenge()
     fillChallenges()
   }
   
