@@ -26,6 +26,9 @@ struct Challenge {
   var questionText: String = ""
   var questionTypeText: String = ""
   var answerText: String
+  var answerTexts: [String] = []
+  var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
+  
   
   init() {
     self.answers = Answers()
@@ -33,6 +36,7 @@ struct Challenge {
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
     questionText = Challenge.getQuestionString(questionType: questionType, answer: answers.correctAnswer)
     answerText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
+    fillAnswerTexts()
   }
 
   static func getAnswerString(questionType: QuestionType, answer: Element) -> String {
@@ -49,6 +53,12 @@ struct Challenge {
       return answer.name
     case.atomicNumberToAtomicSymbol:
       return answer.atomicSymbol
+    }
+  }
+  
+  mutating func fillAnswerTexts() {
+    for answer in answers.answerSet {
+      answerTexts.append(Challenge.getAnswerString(questionType: questionType, answer: answer))
     }
   }
   

@@ -10,14 +10,7 @@ import GameKit
 
 struct Answers {
   private(set) var correctAnswer: Element
-  var numberIncorrect: Int {
-    get {
-      return GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
-    }
-    set {
-      numberIncorrect = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
-    }
-  }
+  var numberIncorrect: Int = 3
 
 
   private(set) var answerSet: [Element]
