@@ -22,7 +22,7 @@ struct Challenge {
   var answers = Answers()
   private let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
 
-  private var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
+  private(set) var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
   var questionText: String = ""
   var questionTypeText: String = ""
   var answerText: String
@@ -96,9 +96,25 @@ struct Challenge {
     }
   }
   
-  func randomChallenge() -> Challenge {
-    let tempChallenge = Challenge()
-    return tempChallenge
+  mutating func randomChallenge() -> Challenge {
+    var newChallenge = Challenge()
+    newChallenge.answers.correctAnswer = answers.periodicTable.randomElement()
+    newChallenge.answers = answers.randomAnswers()
+    fillAnswerTexts()
+    newChallenge.questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
+    return newChallenge
   }
 }
+
+extension Challenge: Equatable {
+  static func == (lhs: Challenge, rhs: Challenge) -> Bool {
+    return
+      lhs.questionType == rhs.questionType &&
+      lhs.answers.correctAnswer == rhs.answers.correctAnswer
+  }
+}
+
+
+
+
 
