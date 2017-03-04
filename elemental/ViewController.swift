@@ -36,10 +36,13 @@ class ViewController: UIViewController {
       loadNextRoundWithDelay(seconds: 2)
     } else {
       for button in choiceButtons {
+        button.setTitle("", for: .normal)
         button.isHidden = true
-        gameInformation.isHidden = true
-        playAgainButton.isHidden = false
       }
+      challengeInformation.text = ""
+      challengeType.text = ""
+      gameInformation.isHidden = false
+      playAgainButton.isHidden = false
     }
     
   }
