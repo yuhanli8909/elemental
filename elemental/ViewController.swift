@@ -17,6 +17,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var challengeType: UILabel!
   @IBOutlet weak var gameProgress: UILabel!
   @IBOutlet weak var gameInformation: UILabel!
+  @IBOutlet weak var playAgainButton: UIButton!
   
   //Interface Builder Actions
   
@@ -70,6 +71,7 @@ class ViewController: UIViewController {
       button.isHidden = false
     }
     gameInformation.isHidden = true
+    playAgainButton.isHidden = true
     displayQuestionInformation()
     displayChoices()
     displayGameProgress()
