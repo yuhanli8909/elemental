@@ -7,22 +7,27 @@
 //
 
 struct Quiz {
-  private let timerOn: Bool
+  private var timerOn: Bool
   var numberOfQuestions: Int
-  
+  var numberAnswered: Int = 0
   var numberCorrect: Int = 0
   var challenges: [Challenge] = []
-  private let challenge = Challenge()
+  private(set) var challenge: Challenge
   
-  init(timer timerOn: Bool, questions numberOfQuestions: Int) {
-    self.timerOn = timerOn
-    self.numberOfQuestions = numberOfQuestions
+  init() {
+    self.numberOfQuestions = 5
+    self.timerOn = false
+    challenge = Challenge()
     fillChallenges()
   }
   
   mutating func fillChallenges() {
+    var randomChallenge = Challenge()
     for _ in 1...numberOfQuestions {
-      self.challenges.append(challenge)
+      while(challenges.contains(randomChallenge)){
+          randomChallenge = challenge.randomChallenge()
+      }
+      self.challenges.append(randomChallenge)
     }
   }
 }

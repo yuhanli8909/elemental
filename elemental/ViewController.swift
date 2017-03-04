@@ -9,17 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController {
+  
+  //Interface Builder Outlets
 
   @IBOutlet var choiceButtons: [UIButton]!
   @IBOutlet weak var challengeInformation: UILabel!
   @IBOutlet weak var challengeType: UILabel!
   @IBOutlet weak var gameProgress: UILabel!
+  
+  //Interface Builder Actions
+  
+  @IBAction func checkAnswer(_ sender: UIButton) {
+    
+    if sender.titleLabel?.text == quiz.challenges[challengeIndex].answerText {
+      challengeInformation.text = "That's Correct!"
+      quiz.numberCorrect += 1
+      displayGameProgress()
+    } else {
+      challengeInformation.text = "Sorry. The answer was \(quiz.challenges[challengeIndex].answerText)"
+    }
+    if challengeIndex < quiz.challenges.count - 1 {
+      challengeIndex += 1
+    }
+    loadNextRoundWithDelay(seconds: 2)
+  }
+  
 
   // Create an instance of quiz and set the current index of
   // the collection of challenges to 0
-  
-  let quiz = Quiz(timer: false, questions: 5)
-  let challengeIndex: Int = 0
+
+  var quiz = Quiz()
+  var challengeIndex: Int = 0
+
   
   
   override func viewDidLoad() {
@@ -47,15 +68,37 @@ class ViewController: UIViewController {
   func displayChoices() {
     var choiceIndex: Int = 0
     let currentChallenge = quiz.challenges[challengeIndex]
-  
     for button in choiceButtons {
-      button.setTitle(currentChallenge.choiceTexts[choiceIndex], for: .normal)
+      button.setTitle(currentChallenge.answerTexts[choiceIndex], for: .normal)
+      
+      if currentChallenge.choicesToDisplay == 3 {
+        if choiceButtons[0].titleLabel?.text == currentChallenge.answerText {
+          choiceButtons[1].isHidden = true
+        } else {
+          choiceButtons[0].isHidden = true
+        }
+      }
       choiceIndex += 1
     }
   }
   
   func displayGameProgress() {
     gameProgress.text = "Correct: \(quiz.numberCorrect)/\(quiz.numberOfQuestions)"
+  }
+  
+  
+  // MARK: Helper Methods
+  
+  func loadNextRoundWithDelay(seconds: Int) {
+    // Converts a delay in seconds to nanoseconds as signed 64 bit integer
+    let delay = Int64(NSEC_PER_SEC * UInt64(seconds))
+    // Calculates a time value to execute the method given current time and delay
+    let dispatchTime = DispatchTime.now() + Double(delay) / Double(NSEC_PER_SEC)
+    
+    // Executes the nextRound method at the dispatch time on the main queue
+    DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
+      self.displayQuizInformation()
+    }
   }
 }
 

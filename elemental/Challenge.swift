@@ -19,32 +19,26 @@ enum QuestionType: String {
 
 
 struct Challenge {
-  let answer: Element
-  let choices: Choices = Choices()
-  let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
+  var answers = Answers()
+  private let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
 
-  private var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
-  let questionText: String
+  private(set) var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
+  var questionText: String = ""
+  var questionTypeText: String = ""
   var answerText: String
-  var choiceTexts: [String] = []
-  let questionTypeText: String
+  var answerTexts: [String] = []
+  var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
+  
   
   init() {
-    self.answer = choices.answer
+    self.answers = Answers()
     questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
-    answerText = Challenge.getAnswerString(questionType: questionType, answer: answer)
-    questionText = Challenge.getQuestionString(questionType: questionType, answer: answer)
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
-    fillChoiceText()
+    questionText = Challenge.getQuestionString(questionType: questionType, answer: answers.correctAnswer)
+    answerText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
+    fillAnswerTexts()
   }
-  
-  mutating func fillChoiceText() {
-    for choice in choices.allChoices {
-      let choiceString = Challenge.getAnswerString(questionType: questionType, answer: choice)
-      choiceTexts.append(choiceString)
-    }
-  }
-  
+
   static func getAnswerString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {
     case .nameToAtomicSymbol:
@@ -59,6 +53,12 @@ struct Challenge {
       return answer.name
     case.atomicNumberToAtomicSymbol:
       return answer.atomicSymbol
+    }
+  }
+  
+  mutating func fillAnswerTexts() {
+    for answer in answers.answerSet {
+      answerTexts.append(Challenge.getAnswerString(questionType: questionType, answer: answer))
     }
   }
   
@@ -95,4 +95,26 @@ struct Challenge {
       return "Which atomic symbol is associated with the atomic number \(answer.atomicNumber)?"
     }
   }
+  
+  mutating func randomChallenge() -> Challenge {
+    var newChallenge = Challenge()
+    newChallenge.answers.correctAnswer = answers.periodicTable.randomElement()
+    newChallenge.answers = answers.randomAnswers()
+    fillAnswerTexts()
+    newChallenge.questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
+    return newChallenge
+  }
 }
+
+extension Challenge: Equatable {
+  static func == (lhs: Challenge, rhs: Challenge) -> Bool {
+    return
+      lhs.questionType == rhs.questionType &&
+      lhs.answers.correctAnswer == rhs.answers.correctAnswer
+  }
+}
+
+
+
+
+
