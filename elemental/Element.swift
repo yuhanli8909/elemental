@@ -6,8 +6,6 @@
 //  Copyright © 2017 Jennifer Nordell. All rights reserved.
 //
 
-import Foundation
-
 struct Element {
   let name: String
   let atomicNumber: UInt

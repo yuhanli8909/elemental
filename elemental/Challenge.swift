@@ -19,15 +19,15 @@ enum QuestionType: String {
 
 
 struct Challenge {
-  var answers = Answers()
+  private(set) var answers = Answers()
   private let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
 
   private(set) var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
-  var questionText: String = ""
-  var questionTypeText: String = ""
-  var answerText: String
-  var answerTexts: [String] = []
-  var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
+  private(set) var questionText: String
+  private(set) var questionTypeText: String
+  private(set) var answerText: String
+  private(set) var answerTexts: [String] = []
+  private(set) var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
   
   
   init() {
@@ -61,21 +61,21 @@ struct Challenge {
       answerTexts.append(Challenge.getAnswerString(questionType: questionType, answer: answer))
     }
   }
-  
+
   static func getQuestionTypeText(questionType: QuestionType) -> String {
     switch questionType {
     case .nameToAtomicSymbol:
-      return "Name -> Symbol"
+      return "Name  → Symbol"
     case .nameToAtomicNumber:
-      return "Name -> Number"
+      return "Name  → Number"
     case .atomicSymbolToName:
-      return "Symbol -> Name"
+      return "Symbol → Name"
     case .atomicSymbolToAtomicNumber:
-      return "Symbol -> Number"
+      return "Symbol → Number"
     case .atomicNumberToName:
-      return "Number -> Name"
+      return "Number → Name"
     case .atomicNumberToAtomicSymbol:
-      return "Number -> Symbol"
+      return "Number → Symbol"
     }
   }
   
@@ -88,11 +88,11 @@ struct Challenge {
     case .atomicSymbolToName:
       return "Which element has the atomic symbol \(answer.atomicSymbol)?"
     case .atomicSymbolToAtomicNumber:
-      return "What is the atomic number associated with the atomic symbol \(answer.atomicSymbol)?"
+      return "What is the atomic number for \(answer.atomicSymbol)?"
     case .atomicNumberToName:
       return "Which element has the atomic number \(answer.atomicNumber)?"
     case .atomicNumberToAtomicSymbol:
-      return "Which atomic symbol is associated with the atomic number \(answer.atomicNumber)?"
+      return "What is the atomic symbol for the atomic number \(answer.atomicNumber)?"
     }
   }
   

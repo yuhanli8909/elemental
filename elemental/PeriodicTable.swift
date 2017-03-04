@@ -6,7 +6,6 @@
 //  Copyright © 2017 Jennifer Nordell. All rights reserved.
 //
 
-import Foundation
 import GameKit
 
 class PeriodicTable {
