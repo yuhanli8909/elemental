@@ -100,8 +100,10 @@ struct Challenge {
     var newChallenge = Challenge()
     newChallenge.answers.correctAnswer = answers.periodicTable.randomElement()
     newChallenge.answers = answers.randomAnswers()
+    newChallenge.choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
     fillAnswerTexts()
     newChallenge.questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
+    
     return newChallenge
   }
 }
