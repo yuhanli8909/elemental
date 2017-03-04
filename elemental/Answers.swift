@@ -38,9 +38,11 @@ struct Answers {
   mutating func shuffleAnswerSet() {
     answerSet = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: answerSet) as! [Element]
   }
-  
+ 
+  /*
   mutating func randomAnswers() -> Answers {
     let randomAnswers = Answers()
     return randomAnswers
   }
+ */
 }

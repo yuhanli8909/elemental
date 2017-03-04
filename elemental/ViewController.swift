@@ -30,9 +30,11 @@ class ViewController: UIViewController {
     } else {
       displayCorrectMessage(isCorrect: false)
     }
+    
     if challengeIndex < quiz.challenges.count - 1 {
       challengeIndex += 1
     }
+    
     loadNextRoundWithDelay(seconds: 2)
   }
   
@@ -67,15 +69,13 @@ class ViewController: UIViewController {
   }
   
   func displayQuizInformation() {
-    for button in choiceButtons {
-      button.isHidden = false
-    }
     gameInformation.isHidden = true
     playAgainButton.isHidden = true
     displayQuestionInformation()
     displayChoices()
     displayGameProgress()
   }
+  
   
   func displayQuestionInformation() {
     challengeInformation.text = quiz.challenges[challengeIndex].questionText
@@ -84,23 +84,12 @@ class ViewController: UIViewController {
   
   func displayChoices() {
     var choiceIndex: Int = 0
-    let currentChallenge = quiz.challenges[challengeIndex]
     for button in choiceButtons {
-      button.setTitle(currentChallenge.answerTexts[choiceIndex], for: .normal)
+      button.isHidden = false
+      button.setTitle(quiz.challenges[challengeIndex].answerTexts[choiceIndex], for: .normal)
       choiceIndex += 1
     }
-    
-    
-    // Logic to display only 3 possible choices instead of 4
-    
-    if quiz.challenges[challengeIndex].choicesToDisplay == 3 {
-      if choiceButtons.first!.titleLabel?.text == quiz.challenges[challengeIndex].answerText {
-        choiceButtons[1].isHidden = true
-      } else {
-        choiceButtons.first!.isHidden = true
-      }
-    }
-}
+  }
 
   
   func displayGameProgress() {

@@ -15,7 +15,7 @@ struct Quiz {
   private(set) var challenge: Challenge
   
   init() {
-    self.numberOfQuestions = 5
+    self.numberOfQuestions = 10
     self.timerOn = false
     challenge = Challenge()
     fillChallenges()
