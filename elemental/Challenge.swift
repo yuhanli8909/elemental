@@ -82,17 +82,17 @@ struct Challenge {
   static func getQuestionString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {
     case .nameToAtomicSymbol:
-      return "What is the atomic symbol for \(answer.name)?"
+      return "What is the \n atomic symbol for \(answer.name)?"
     case .nameToAtomicNumber:
-      return "What is the atomic number for \(answer.name)?"
+      return "What is the \n atomic number for \(answer.name)?"
     case .atomicSymbolToName:
-      return "Which element has the atomic symbol \(answer.atomicSymbol)?"
+      return "Which element has the \n atomic symbol \(answer.atomicSymbol)?"
     case .atomicSymbolToAtomicNumber:
       return "What is the atomic number for \(answer.atomicSymbol)?"
     case .atomicNumberToName:
-      return "Which element has the atomic number \(answer.atomicNumber)?"
+      return "Which element has the \n atomic number \(answer.atomicNumber)?"
     case .atomicNumberToAtomicSymbol:
-      return "What is the atomic symbol for the atomic number \(answer.atomicNumber)?"
+      return "What is the atomic symbol for \n the atomic number \(answer.atomicNumber)?"
     }
   }
   

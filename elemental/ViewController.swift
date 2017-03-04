@@ -16,6 +16,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var challengeInformation: UILabel!
   @IBOutlet weak var challengeType: UILabel!
   @IBOutlet weak var gameProgress: UILabel!
+  @IBOutlet weak var gameInformation: UILabel!
   
   //Interface Builder Actions
   
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
   }
   
   func displayQuizInformation() {
+    gameInformation.isHidden = true
     displayQuestionInformation()
     displayChoices()
     displayGameProgress()
