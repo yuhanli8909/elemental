@@ -18,6 +18,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var gameProgress: UILabel!
   @IBOutlet weak var gameInformation: UILabel!
   @IBOutlet weak var playAgainButton: UIButton!
+  @IBOutlet weak var scoreInformation: UILabel!
   
   //Interface Builder Actions
   
@@ -38,9 +39,11 @@ class ViewController: UIViewController {
       for button in choiceButtons {
         button.setTitle("", for: .normal)
         button.isHidden = true
-      }
+      } 
       challengeInformation.text = ""
       challengeType.text = ""
+      scoreInformation.text = quiz.quizScore()
+      scoreInformation.isHidden = false
       gameInformation.isHidden = false
       playAgainButton.isHidden = false
     }
@@ -87,6 +90,7 @@ class ViewController: UIViewController {
   func displayQuizInformation() {
     gameInformation.isHidden = true
     playAgainButton.isHidden = true
+    scoreInformation.isHidden = true
     displayQuestionInformation()
     displayChoices()
     displayGameProgress()

@@ -30,4 +30,19 @@ struct Quiz {
       self.challenges.append(randomChallenge)
     }
   }
+  
+  func quizScore() -> String {
+    switch numberCorrect {
+    case 10:
+      return "Perfect! 🏆"
+    case 9:
+      return "Wow! You get an A! 🥇"
+    case 8:
+      return "Not bad! That's a solid B. 🥈"
+    case 7:
+      return "You passed, but keep working for a trophy! 🥉"
+    default:
+      return "Keep practicing. You can do it!"
+    }
+  }
 }
