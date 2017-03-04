@@ -23,11 +23,11 @@ class ViewController: UIViewController {
   @IBAction func checkAnswer(_ sender: UIButton) {
     
     if sender.titleLabel?.text == quiz.challenges[challengeIndex].answerText {
-      challengeInformation.text = "That's Correct!"
+      displayCorrectMessage(isCorrect: true)
       quiz.numberCorrect += 1
       displayGameProgress()
     } else {
-      challengeInformation.text = "Sorry. The answer was \(quiz.challenges[challengeIndex].answerText)"
+      displayCorrectMessage(isCorrect: false)
     }
     if challengeIndex < quiz.challenges.count - 1 {
       challengeIndex += 1
@@ -53,6 +53,18 @@ class ViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func displayCorrectMessage(isCorrect: Bool) {
+    for button in choiceButtons {
+      button.isHidden = true
+    }
+    gameInformation.isHidden = false
+    if(isCorrect) {
+      gameInformation.text = "✅ That's correct!"
+    } else {
+      gameInformation.text = "❌ Sorry, the answer was \(quiz.challenges[challengeIndex].answerText)"
+    }
   }
   
   func displayQuizInformation() {
