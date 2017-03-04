@@ -9,7 +9,7 @@
 import GameKit
 
 struct Answers {
-  private(set) var correctAnswer: Element
+  var correctAnswer: Element
   var numberIncorrect: Int = 3
 
 

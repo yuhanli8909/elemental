@@ -14,7 +14,6 @@
 		A0C4E4951E64A81D00EC48E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C4E4931E64A81D00EC48E3 /* LaunchScreen.storyboard */; };
 		A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */; };
 		A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4A91E6634DA00EC48E3 /* Element.swift */; };
-		A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AC1E66487800EC48E3 /* Choices.swift */; };
 		A0C4E4AF1E680C1E00EC48E3 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */; };
 		A0C4E4B11E68836800EC48E3 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4B01E68836800EC48E3 /* Quiz.swift */; };
 		A0C4E4B31E69263300EC48E3 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C4E4B21E69263300EC48E3 /* Answers.swift */; };
@@ -30,7 +29,6 @@
 		A0C4E4961E64A81D00EC48E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
 		A0C4E4A91E6634DA00EC48E3 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		A0C4E4AC1E66487800EC48E3 /* Choices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
 		A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		A0C4E4B01E68836800EC48E3 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		A0C4E4B21E69263300EC48E3 /* Answers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			children = (
 				A0C4E4B21E69263300EC48E3 /* Answers.swift */,
 				A0C4E4AE1E680C1E00EC48E3 /* Challenge.swift */,
-				A0C4E4AC1E66487800EC48E3 /* Choices.swift */,
 				A0C4E4A91E6634DA00EC48E3 /* Element.swift */,
 				A0C4E4A71E66323300EC48E3 /* PeriodicTable.swift */,
 				A0C4E4B01E68836800EC48E3 /* Quiz.swift */,
@@ -167,7 +164,6 @@
 				A0C4E4B11E68836800EC48E3 /* Quiz.swift in Sources */,
 				A0C4E4A81E66323300EC48E3 /* PeriodicTable.swift in Sources */,
 				A0C4E4AA1E6634DA00EC48E3 /* Element.swift in Sources */,
-				A0C4E4AD1E66487800EC48E3 /* Choices.swift in Sources */,
 				A0C4E4B31E69263300EC48E3 /* Answers.swift in Sources */,
 				A0C4E48B1E64A81D00EC48E3 /* AppDelegate.swift in Sources */,
 			);
