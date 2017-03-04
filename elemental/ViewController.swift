@@ -38,8 +38,8 @@ class ViewController: UIViewController {
   // Create an instance of quiz and set the current index of
   // the collection of challenges to 0
   
-  var quiz = Quiz()
-  var challengeIndex: Int = 0
+  private var quiz = Quiz()
+  private var challengeIndex: Int = 0
 
   
   override func viewDidLoad() {
@@ -57,8 +57,6 @@ class ViewController: UIViewController {
     for button in choiceButtons {
       button.isHidden = true
     }
-    challengeInformation.text = ""
-    challengeType.text = ""
     gameInformation.isHidden = false
     if(isCorrect) {
       gameInformation.text = "✅ That's correct!"
