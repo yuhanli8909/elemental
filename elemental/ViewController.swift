@@ -70,17 +70,11 @@ class ViewController: UIViewController {
     let currentChallenge = quiz.challenges[challengeIndex]
     for button in choiceButtons {
       button.setTitle(currentChallenge.answerTexts[choiceIndex], for: .normal)
-      
-      if currentChallenge.choicesToDisplay == 3 {
-        if choiceButtons[0].titleLabel?.text == currentChallenge.answerText {
-          choiceButtons[1].isHidden = true
-        } else {
-          choiceButtons[0].isHidden = true
-        }
-      }
       choiceIndex += 1
     }
-  }
+    
+}
+
   
   func displayGameProgress() {
     gameProgress.text = "Correct: \(quiz.numberCorrect)/\(quiz.numberOfQuestions)"
