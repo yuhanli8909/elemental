@@ -35,14 +35,12 @@ class ViewController: UIViewController {
     loadNextRoundWithDelay(seconds: 2)
   }
   
-
   // Create an instance of quiz and set the current index of
   // the collection of challenges to 0
-
+  
   var quiz = Quiz()
   var challengeIndex: Int = 0
 
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,6 +57,8 @@ class ViewController: UIViewController {
     for button in choiceButtons {
       button.isHidden = true
     }
+    challengeInformation.text = ""
+    challengeType.text = ""
     gameInformation.isHidden = false
     if(isCorrect) {
       gameInformation.text = "✅ That's correct!"
@@ -68,6 +68,9 @@ class ViewController: UIViewController {
   }
   
   func displayQuizInformation() {
+    for button in choiceButtons {
+      button.isHidden = false
+    }
     gameInformation.isHidden = true
     displayQuestionInformation()
     displayChoices()
