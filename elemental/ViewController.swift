@@ -33,9 +33,21 @@ class ViewController: UIViewController {
     
     if challengeIndex < quiz.challenges.count - 1 {
       challengeIndex += 1
+      loadNextRoundWithDelay(seconds: 2)
+    } else {
+      for button in choiceButtons {
+        button.isHidden = true
+        gameInformation.isHidden = true
+        playAgainButton.isHidden = false
+      }
     }
     
-    loadNextRoundWithDelay(seconds: 2)
+  }
+  
+  @IBAction func playAgain(_ sender: Any) {
+    quiz = Quiz()
+    challengeIndex = 0
+    displayQuizInformation()
   }
   
   // Create an instance of quiz and set the current index of
@@ -56,15 +68,16 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  
   func displayCorrectMessage(isCorrect: Bool) {
     for button in choiceButtons {
       button.isHidden = true
     }
     gameInformation.isHidden = false
     if(isCorrect) {
-      gameInformation.text = "✅ That's correct!"
+      gameInformation.text = "✅  That's correct!"
     } else {
-      gameInformation.text = "❌ Sorry, the answer was \(quiz.challenges[challengeIndex].answerText)"
+      gameInformation.text = "❌  Sorry, the answer was \(quiz.challenges[challengeIndex].answerText)"
     }
   }
   
