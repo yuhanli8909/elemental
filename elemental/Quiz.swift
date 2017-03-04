@@ -8,10 +8,10 @@
 
 struct Quiz {
   private var timerOn: Bool
-  var numberOfQuestions: Int
+  private(set) var numberOfQuestions: Int
   var numberAnswered: Int = 0
   var numberCorrect: Int = 0
-  var challenges: [Challenge] = []
+  private(set) var challenges: [Challenge] = []
   private(set) var challenge: Challenge
   
   init() {
