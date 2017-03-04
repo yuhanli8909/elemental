@@ -27,7 +27,7 @@ struct Challenge {
   private(set) var questionTypeText: String
   private(set) var answerText: String
   private(set) var correctText: String
-  private(set) var answerTexts: [String] = []
+  private(set) var answerTexts: [String]
   private(set) var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
   
   
@@ -38,6 +38,7 @@ struct Challenge {
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
     questionText = Challenge.getQuestionString(questionType: questionType, answer: answers.correctAnswer)
     answerText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
+    answerTexts = []
     fillAnswerTexts()
   }
 
@@ -101,9 +102,8 @@ struct Challenge {
   mutating func randomChallenge() -> Challenge {
     var newChallenge = Challenge()
     newChallenge.answers.correctAnswer = answers.periodicTable.randomElement()
-    newChallenge.answers = answers.randomAnswers()
+    newChallenge.fillAnswerTexts()
     newChallenge.choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
-    fillAnswerTexts()
     newChallenge.questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
     
     return newChallenge
