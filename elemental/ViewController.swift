@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     // Logic to display only 3 possible choices instead of 4
     
     if quiz.challenges[challengeIndex].choicesToDisplay == 3 {
-      if choiceButtons.first!.titleLabel?.text == quiz.challenges[challengeIndex].answerText {
+      if choiceButtons.first!.titleLabel?.text == quiz.challenges[challengeIndex].correctText {
         choiceButtons[1].isHidden = true
       } else {
         choiceButtons.first!.isHidden = true

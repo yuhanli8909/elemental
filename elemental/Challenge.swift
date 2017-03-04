@@ -26,6 +26,7 @@ struct Challenge {
   private(set) var questionText: String
   private(set) var questionTypeText: String
   private(set) var answerText: String
+  private(set) var correctText: String
   private(set) var answerTexts: [String] = []
   private(set) var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
   
@@ -33,6 +34,7 @@ struct Challenge {
   init() {
     self.answers = Answers()
     questionType = questionTypes[GKRandomSource.sharedRandom().nextInt(upperBound: questionTypes.count)]
+    correctText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
     questionText = Challenge.getQuestionString(questionType: questionType, answer: answers.correctAnswer)
     answerText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
