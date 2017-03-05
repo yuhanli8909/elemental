@@ -30,6 +30,12 @@ struct Quiz {
     }
   }
   
+  var answerTexts: [String] {
+    get {
+      return challenges[currentChallengeIndex].answerTexts
+    }
+  }
+  
   init() {
     self.numberOfQuestions = 10
     self.timerOn = false
@@ -47,21 +53,7 @@ struct Quiz {
       self.challenges.append(randomChallenge)
     }
   }
-  /*
-  func getAnswerText(index: Int) -> String {
-    return challenges[index].answerText
-  }
- 
-  
-  func getQuestionText(index: Int) -> String {
-    return challenges[index].questionText
-  }
- 
-  func getQuestionTypeText(index: Int) -> String {
-    return challenges[index].questionTypeText
-  }
- */
-  
+
   func quizScore() -> String {
     switch numberCorrect {
     case 10:

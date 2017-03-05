@@ -104,12 +104,14 @@ class ViewController: UIViewController {
     var choiceIndex: Int = 0
     for button in choiceButtons {
       button.isHidden = false
-      button.setTitle(quiz.challenges[quiz.currentChallengeIndex].answerTexts[choiceIndex], for: .normal)
+      button.setTitle(quiz.answerTexts[choiceIndex], for: .normal)
+      print("Answer array: " + quiz.answerTexts[choiceIndex])
+      print("Button text: " + button.titleLabel!.text!)
       choiceIndex += 1
     }
+    print("------------------")
   }
 
-  
   func displayGameProgress() {
     gameProgress.text = "Correct: \(quiz.numberCorrect)/\(quiz.numberOfQuestions)"
   }

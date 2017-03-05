@@ -22,6 +22,7 @@ class PeriodicTable {
     periodicTable.append(Element("Oxygen", 8, atomicSymbol: "O"))
     periodicTable.append(Element("Fluorine", 9, atomicSymbol: "F"))
     periodicTable.append(Element("Neon", 10, atomicSymbol: "Ne"))
+    /*
     periodicTable.append(Element("Sodium", 11, atomicSymbol: "Na"))
     periodicTable.append(Element("Magnesium", 12, atomicSymbol: "Mg"))
     periodicTable.append(Element("Aluminum", 13, atomicSymbol: "Al"))
@@ -32,6 +33,7 @@ class PeriodicTable {
     periodicTable.append(Element("Argon", 18, atomicSymbol: "Ar"))
     periodicTable.append(Element("Potassium", 19, atomicSymbol: "K"))
     periodicTable.append(Element("Calcium", 20, atomicSymbol: "Ca"))
+     */
   }
   
   func randomElement() -> Element {
