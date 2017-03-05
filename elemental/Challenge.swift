@@ -8,6 +8,9 @@
 
 import GameKit
 
+
+// Enum to contain the types of questions available
+
 enum QuestionType: String {
   case nameToAtomicSymbol
   case nameToAtomicNumber
@@ -18,14 +21,18 @@ enum QuestionType: String {
 }
 
 
+// This struct conforms to Equatable to make it possible
+// to ensure unique challenges are added to the collection in the Quiz
+
 struct Challenge {
   private(set) var answers = Answers()
+  // Creation of array containing the different types of questions
   private let questionTypes = [QuestionType.nameToAtomicSymbol, QuestionType.nameToAtomicNumber, QuestionType.atomicSymbolToName, QuestionType.atomicSymbolToAtomicNumber, QuestionType.atomicNumberToName, QuestionType.atomicNumberToAtomicSymbol]
 
-  private(set) var questionType: QuestionType = QuestionType.atomicNumberToAtomicSymbol
+  private(set) var questionType: QuestionType
   private(set) var questionText: String
   private(set) var questionTypeText: String
-  private(set) var answerText: String
+ // private(set) var answerText: String
   private(set) var correctText: String
   private(set) var answerTexts: [String]
   private(set) var choicesToDisplay = GKRandomSource.sharedRandom().nextInt(upperBound: 2) + 2
@@ -37,10 +44,11 @@ struct Challenge {
     correctText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
     questionTypeText = Challenge.getQuestionTypeText(questionType: questionType)
     questionText = Challenge.getQuestionString(questionType: questionType, answer: answers.correctAnswer)
-    answerText = Challenge.getAnswerString(questionType: questionType, answer: answers.correctAnswer)
     answerTexts = []
     fillAnswerTexts()
   }
+  
+  // Determine the string to be presented based on the Element and the QuestionType
 
   static func getAnswerString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {
@@ -59,11 +67,18 @@ struct Challenge {
     }
   }
   
+  
+  // Function to fill this array with choices to be presented to the user
+  
   mutating func fillAnswerTexts() {
     for answer in answers.answerSet {
       answerTexts.append(Challenge.getAnswerString(questionType: questionType, answer: answer))
     }
   }
+  
+  
+  // Function to determine what should be placed on the label to indicate to the user
+  // what type of question this is
 
   static func getQuestionTypeText(questionType: QuestionType) -> String {
     switch questionType {
@@ -82,6 +97,10 @@ struct Challenge {
     }
   }
   
+  
+  // Function to determine the question to be displayed to the user
+  // based both on the correct Element that was chose and the question type
+  
   static func getQuestionString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {
     case .nameToAtomicSymbol:
@@ -98,6 +117,12 @@ struct Challenge {
       return "What is the atomic symbol for \n the atomic number \(answer.atomicNumber)?"
     }
   }
+  
+  
+  // Function to generate a random challenge
+  // A new correct element is chosen along with the number of choices to display
+  // and a new question type.  The answer string array is filled with new unique
+  // strings for both correct answer and incorrect answers
   
   mutating func randomChallenge() -> Challenge {
     var newChallenge = Challenge()
