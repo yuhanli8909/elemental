@@ -18,12 +18,13 @@ class ViewController: UIViewController {
   @IBOutlet weak var gameProgress: UILabel!
   @IBOutlet weak var gameInformation: UILabel!
   @IBOutlet weak var playAgainButton: UIButton!
+  @IBOutlet weak var scoreInformation: UILabel!
   
   //Interface Builder Actions
   
   @IBAction func checkAnswer(_ sender: UIButton) {
     
-    if sender.titleLabel?.text == quiz.challenges[challengeIndex].answerText {
+    if sender.titleLabel?.text == quiz.answerText {
       displayCorrectMessage(isCorrect: true)
       quiz.numberCorrect += 1
       displayGameProgress()
@@ -31,16 +32,18 @@ class ViewController: UIViewController {
       displayCorrectMessage(isCorrect: false)
     }
     
-    if challengeIndex < quiz.challenges.count - 1 {
-      challengeIndex += 1
+    if quiz.currentChallengeIndex < quiz.challenges.count - 1 {
+      quiz.currentChallengeIndex += 1
       loadNextRoundWithDelay(seconds: 2)
     } else {
       for button in choiceButtons {
         button.setTitle("", for: .normal)
         button.isHidden = true
-      }
+      } 
       challengeInformation.text = ""
       challengeType.text = ""
+      scoreInformation.text = quiz.quizScore()
+      scoreInformation.isHidden = false
       gameInformation.isHidden = false
       playAgainButton.isHidden = false
     }
@@ -49,7 +52,6 @@ class ViewController: UIViewController {
   
   @IBAction func playAgain(_ sender: Any) {
     quiz = Quiz()
-    challengeIndex = 0
     displayQuizInformation()
   }
   
@@ -57,7 +59,6 @@ class ViewController: UIViewController {
   // the collection of challenges to 0
   
   private var quiz = Quiz()
-  private var challengeIndex: Int = 0
 
   
   override func viewDidLoad() {
@@ -80,13 +81,14 @@ class ViewController: UIViewController {
     if(isCorrect) {
       gameInformation.text = "✅  That's correct!"
     } else {
-      gameInformation.text = "❌  Sorry, the answer was \(quiz.challenges[challengeIndex].answerText)"
+      gameInformation.text = "❌  Sorry, the answer was \(quiz.answerText)"
     }
   }
   
   func displayQuizInformation() {
     gameInformation.isHidden = true
     playAgainButton.isHidden = true
+    scoreInformation.isHidden = true
     displayQuestionInformation()
     displayChoices()
     displayGameProgress()
@@ -94,15 +96,15 @@ class ViewController: UIViewController {
   
   
   func displayQuestionInformation() {
-    challengeInformation.text = quiz.challenges[challengeIndex].questionText
-    challengeType.text = quiz.challenges[challengeIndex].questionTypeText
+    challengeInformation.text = quiz.questionText
+    challengeType.text =  quiz.questionTypeText
   }
   
   func displayChoices() {
     var choiceIndex: Int = 0
     for button in choiceButtons {
       button.isHidden = false
-      button.setTitle(quiz.challenges[challengeIndex].answerTexts[choiceIndex], for: .normal)
+      button.setTitle(quiz.challenges[quiz.currentChallengeIndex].answerTexts[choiceIndex], for: .normal)
       choiceIndex += 1
     }
   }
