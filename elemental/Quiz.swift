@@ -36,6 +36,12 @@ struct Quiz {
     }
   }
   
+  var choicesToDisplay: Int {
+    get {
+      return challenges[currentChallengeIndex].choicesToDisplay
+    }
+  }
+  
   init() {
     self.numberOfQuestions = 10
     self.timerOn = false

@@ -37,7 +37,6 @@ class ViewController: UIViewController {
       loadNextRoundWithDelay(seconds: 2)
     } else {
       for button in choiceButtons {
-        button.setTitle("", for: .normal)
         button.isHidden = true
       } 
       challengeInformation.text = ""
@@ -105,11 +104,16 @@ class ViewController: UIViewController {
     for button in choiceButtons {
       button.isHidden = false
       button.setTitle(quiz.answerTexts[choiceIndex], for: .normal)
-      print("Answer array: " + quiz.answerTexts[choiceIndex])
-      print("Button text: " + button.titleLabel!.text!)
       choiceIndex += 1
     }
-    print("------------------")
+    
+    if quiz.choicesToDisplay == 3 {
+      if quiz.answerText == quiz.answerTexts.first! {
+        choiceButtons.last!.isHidden = true
+      } else {
+        choiceButtons.first!.isHidden = true
+      }
+    }
   }
 
   func displayGameProgress() {
