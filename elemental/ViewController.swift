@@ -39,8 +39,6 @@ class ViewController: UIViewController {
       for button in choiceButtons {
         button.isHidden = true
       } 
-      challengeInformation.text = ""
-      challengeType.text = ""
       scoreInformation.text = quiz.quizScore()
       scoreInformation.isHidden = false
       gameInformation.isHidden = false
