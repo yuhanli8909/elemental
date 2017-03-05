@@ -8,10 +8,13 @@
 
 import GameKit
 
+
+// Stuct containg answers.  Given that it holds both a correct answer and three 
+// incorrect answers, I chose the plural form when naming this one.
+
 struct Answers {
   var correctAnswer: Element
   var numberIncorrect: Int = 3
-
 
   private(set) var answerSet: [Element]
   let periodicTable: PeriodicTable = PeriodicTable()
@@ -24,6 +27,11 @@ struct Answers {
     shuffleAnswerSet()
   }
 
+  // Function to fill the array with the correct answer and incorrect answers
+  // Because Element is Equatable we can guarantee unique elements.  This prevents
+  // the same element showing up multiple times.  We start by appending the correct answer first
+  // to ensure that it is present amongst the answer set
+  
   mutating func fillAnswerSet() {
     var randomElement = periodicTable.randomElement()
     answerSet.append(correctAnswer)
@@ -35,14 +43,13 @@ struct Answers {
     }
   }
   
+  // Function to shuffle the answer set given that the correct answer will always be placed
+  // in the array first.
+  
   mutating func shuffleAnswerSet() {
     answerSet = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: answerSet) as! [Element]
   }
- 
-  /*
-  mutating func randomAnswers() -> Answers {
-    let randomAnswers = Answers()
-    return randomAnswers
-  }
- */
 }
+
+
+

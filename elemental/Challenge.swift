@@ -99,7 +99,7 @@ struct Challenge {
   
   
   // Function to determine the question to be displayed to the user
-  // based both on the correct Element that was chose and the question type
+  // based both on the correct Element that was chosen and the question type
   
   static func getQuestionString(questionType: QuestionType, answer: Element) -> String {
     switch questionType {
