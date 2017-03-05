@@ -8,6 +8,9 @@
 
 import GameKit
 
+
+// Creation of a class to hold a collection of struct instances of type Element
+
 class PeriodicTable {
   private var periodicTable: [Element] = []
   
@@ -35,6 +38,9 @@ class PeriodicTable {
     periodicTable.append(Element("Calcium", 20, atomicSymbol: "Ca"))
      */
   }
+  
+  
+  // Function to return a random Element from the PeriodicTable
   
   func randomElement() -> Element {
     let randomIndex = GKRandomSource.sharedRandom().nextInt(upperBound: periodicTable.count)

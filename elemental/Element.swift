@@ -6,6 +6,10 @@
 //  Copyright © 2017 Jennifer Nordell. All rights reserved.
 //
 
+
+// Custom struct to create an element with a name, atomic number, and atomic symbol
+// This struct conforms to Equatable
+
 struct Element {
   let name: String
   let atomicNumber: UInt
