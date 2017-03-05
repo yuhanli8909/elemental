@@ -6,6 +6,10 @@
 //  Copyright © 2017 Jennifer Nordell. All rights reserved.
 //
 
+
+// A struct that contains a set of "Challenges" and also offers
+// some computed properties available to the ViewController
+
 struct Quiz {
   private var timerOn: Bool
   private(set) var numberOfQuestions: Int
@@ -14,16 +18,20 @@ struct Quiz {
   var numberCorrect: Int = 0
   private(set) var challenges: [Challenge] = []
   private(set) var challenge: Challenge
+  
+  // This is the string that stores the CORRECT answer
   var answerText: String {
     get {
       return challenges[currentChallengeIndex].answerText
     }
   }
+  
   var questionText: String {
     get {
       return challenges[currentChallengeIndex].questionText
     }
   }
+  
   var questionTypeText: String {
     get {
       return challenges[currentChallengeIndex].questionTypeText
@@ -50,6 +58,12 @@ struct Quiz {
     fillChallenges()
   }
   
+  
+  // Function to fill the challenge collection.  Challenges conform to Equatable
+  // and are uniquely identifiable by the element picked combined with the question type.
+  // This results in the ability to be asked more than one question on the same Element, but
+  // NOT the same TYPE of question
+  
   mutating func fillChallenges() {
     var randomChallenge = Challenge()
     for _ in 1...numberOfQuestions {
@@ -60,6 +74,8 @@ struct Quiz {
     }
   }
 
+  // Function to return a cute String to the user based on performance
+  
   func quizScore() -> String {
     switch numberCorrect {
     case 10:
@@ -75,3 +91,6 @@ struct Quiz {
     }
   }
 }
+
+
+
