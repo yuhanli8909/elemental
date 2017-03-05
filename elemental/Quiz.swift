@@ -22,7 +22,7 @@ struct Quiz {
   // This is the string that stores the CORRECT answer
   var answerText: String {
     get {
-      return challenges[currentChallengeIndex].answerText
+      return challenges[currentChallengeIndex].correctText
     }
   }
   
