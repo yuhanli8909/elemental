@@ -9,14 +9,31 @@
 struct Quiz {
   private var timerOn: Bool
   private(set) var numberOfQuestions: Int
+  var currentChallengeIndex: Int
   var numberAnswered: Int = 0
   var numberCorrect: Int = 0
   private(set) var challenges: [Challenge] = []
   private(set) var challenge: Challenge
+  var answerText: String {
+    get {
+      return challenges[currentChallengeIndex].answerText
+    }
+  }
+  var questionText: String {
+    get {
+      return challenges[currentChallengeIndex].questionText
+    }
+  }
+  var questionTypeText: String {
+    get {
+      return challenges[currentChallengeIndex].questionTypeText
+    }
+  }
   
   init() {
     self.numberOfQuestions = 10
     self.timerOn = false
+    currentChallengeIndex = 0
     challenge = Challenge()
     fillChallenges()
   }
@@ -30,18 +47,20 @@ struct Quiz {
       self.challenges.append(randomChallenge)
     }
   }
-  
+  /*
   func getAnswerText(index: Int) -> String {
     return challenges[index].answerText
   }
+ 
   
   func getQuestionText(index: Int) -> String {
     return challenges[index].questionText
   }
-  
+ 
   func getQuestionTypeText(index: Int) -> String {
     return challenges[index].questionTypeText
   }
+ */
   
   func quizScore() -> String {
     switch numberCorrect {
