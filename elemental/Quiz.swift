@@ -31,6 +31,18 @@ struct Quiz {
     }
   }
   
+  func getAnswerText(index: Int) -> String {
+    return challenges[index].answerText
+  }
+  
+  func getQuestionText(index: Int) -> String {
+    return challenges[index].questionText
+  }
+  
+  func getQuestionTypeText(index: Int) -> String {
+    return challenges[index].questionTypeText
+  }
+  
   func quizScore() -> String {
     switch numberCorrect {
     case 10:

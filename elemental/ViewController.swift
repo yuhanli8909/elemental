@@ -24,7 +24,7 @@ class ViewController: UIViewController {
   
   @IBAction func checkAnswer(_ sender: UIButton) {
     
-    if sender.titleLabel?.text == quiz.challenges[challengeIndex].answerText {
+    if sender.titleLabel?.text == quiz.getAnswerText(index: challengeIndex) {
       displayCorrectMessage(isCorrect: true)
       quiz.numberCorrect += 1
       displayGameProgress()
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
     if(isCorrect) {
       gameInformation.text = "✅  That's correct!"
     } else {
-      gameInformation.text = "❌  Sorry, the answer was \(quiz.challenges[challengeIndex].answerText)"
+      gameInformation.text = "❌  Sorry, the answer was \(quiz.getAnswerText(index: challengeIndex))"
     }
   }
   
@@ -98,8 +98,8 @@ class ViewController: UIViewController {
   
   
   func displayQuestionInformation() {
-    challengeInformation.text = quiz.challenges[challengeIndex].questionText
-    challengeType.text = quiz.challenges[challengeIndex].questionTypeText
+    challengeInformation.text = quiz.getQuestionText(index: challengeIndex)
+    challengeType.text =  quiz.getQuestionTypeText(index: challengeIndex)
   }
   
   func displayChoices() {
