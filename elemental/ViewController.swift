@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
   
+  
+  private var quiz = Quiz()
+  private var sedonds = 15
+  private var time = Timer()
+  
+  
   //Interface Builder Outlets
 
   @IBOutlet var choiceButtons: [UIButton]!
@@ -54,9 +60,7 @@ class ViewController: UIViewController {
     displayQuizInformation()
   }
   
-  // Create an instance of quiz and set the current index of
-  
-  private var quiz = Quiz()
+ 
 
   
   override func viewDidLoad() {
