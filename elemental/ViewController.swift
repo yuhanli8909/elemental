@@ -12,8 +12,8 @@ class ViewController: UIViewController {
   
   
   private var quiz = Quiz()
-  private var sedonds = 15
-  private var time = Timer()
+  private var seconds = 15
+  private var timer = Timer()
   
   
   //Interface Builder Outlets
@@ -25,6 +25,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var gameInformation: UILabel!
   @IBOutlet weak var playAgainButton: UIButton!
   @IBOutlet weak var scoreInformation: UILabel!
+  @IBOutlet weak var timerLabel: UILabel!
+  
   
   //Interface Builder Actions
   
@@ -57,6 +59,8 @@ class ViewController: UIViewController {
   
   @IBAction func playAgain(_ sender: Any) {
     quiz = Quiz()
+    seconds = 15
+    timer = Timer()
     displayQuizInformation()
   }
   
@@ -66,6 +70,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Start game
+    resetTimer()
     displayQuizInformation()
   }
 
@@ -73,6 +78,30 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  
+  func resetTimer() {
+    timer.invalidate()
+    seconds = 15
+    
+    let dispatchTime = DispatchTime.now()
+    
+    // Executes the nextRound method at the dispatch time on the main queue
+    DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
+      self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countTime), userInfo: nil, repeats: true)
+    }
+  }
+  
+  
+  func countTime() {
+    seconds -= 1
+    timerLabel.text = String(seconds)
+    
+    if seconds == 0 {
+      timer.invalidate()
+    }
+  }
+  
   
   // Display if the answer was correct or not
   
@@ -92,6 +121,7 @@ class ViewController: UIViewController {
   // Display all important information about the Quiz
   
   func displayQuizInformation() {
+    //resetTimer()
     gameInformation.isHidden = true
     playAgainButton.isHidden = true
     scoreInformation.isHidden = true
@@ -156,6 +186,7 @@ class ViewController: UIViewController {
     // Executes the nextRound method at the dispatch time on the main queue
     DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
       self.displayQuizInformation()
+      self.resetTimer()
     }
   }
 }
