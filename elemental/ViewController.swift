@@ -31,6 +31,8 @@ class ViewController: UIViewController {
   //Interface Builder Actions
   
   @IBAction func checkAnswer(_ sender: UIButton) {
+    timer.invalidate()
+    timerLabel.text = ""
     
     if sender.titleLabel?.text == quiz.answerText {
       displayCorrectMessage(isCorrect: true)
@@ -61,6 +63,7 @@ class ViewController: UIViewController {
     quiz = Quiz()
     seconds = 15
     timer = Timer()
+    resetTimer()
     displayQuizInformation()
   }
   
