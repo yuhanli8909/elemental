@@ -37,26 +37,11 @@ class ViewController: UIViewController {
     if sender.titleLabel?.text == quiz.answerText {
       displayCorrectMessage(isCorrect: true)
       quiz.numberCorrect += 1
-      displayGameProgress()
     } else {
       displayCorrectMessage(isCorrect: false)
     }
     
-    
-    // Avoiding out of bounds by ensuring that the index is not incremented if it's on the last challenge
-    
-    if quiz.currentChallengeIndex < quiz.challenges.count - 1 {
-      quiz.currentChallengeIndex += 1
-      loadNextRoundWithDelay(seconds: 2)
-    } else {
-      for button in choiceButtons {
-        button.isHidden = true
-      }
-      scoreInformation.text = quiz.quizScore()
-      scoreInformation.isHidden = false
-      gameInformation.isHidden = false
-      playAgainButton.isHidden = false
-    }
+    checkGameEnd()
   }
   
   @IBAction func playAgain(_ sender: Any) {
@@ -67,8 +52,6 @@ class ViewController: UIViewController {
     displayQuizInformation()
   }
   
- 
-
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -82,6 +65,21 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  
+  func checkGameEnd() {
+    if quiz.currentChallengeIndex < quiz.challenges.count - 1 {
+      quiz.currentChallengeIndex += 1
+      loadNextRoundWithDelay(seconds: 2)
+    } else {
+      for button in choiceButtons {
+        button.isHidden = true
+      }
+      scoreInformation.text = quiz.quizScore()
+      scoreInformation.isHidden = false
+      gameInformation.isHidden = false
+      playAgainButton.isHidden = false
+    }
+  }
   
   func resetTimer() {
     timer.invalidate()
@@ -102,6 +100,8 @@ class ViewController: UIViewController {
     
     if seconds == 0 {
       timer.invalidate()
+      displayCorrectMessage(isCorrect: false)
+      checkGameEnd()
     }
   }
   
