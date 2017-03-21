@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     } else {
       displayCorrectMessage(isCorrect: false)
     }
-    
+    displayGameProgress()
     checkGameEnd()
   }
   
