@@ -14,12 +14,6 @@ struct Element {
   let name: String
   let atomicNumber: UInt
   let atomicSymbol: String
-  
-  init(_ name: String, _ atomicNumber: UInt, atomicSymbol: String){
-    self.name = name
-    self.atomicNumber = atomicNumber
-    self.atomicSymbol = atomicSymbol
-  }
 }
 
 extension Element: Equatable {
