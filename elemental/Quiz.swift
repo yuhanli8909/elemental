@@ -64,7 +64,7 @@ struct Quiz {
   // This results in the ability to be asked more than one question on the same Element, but
   // NOT the same TYPE of question
   
-  mutating func fillChallenges() {
+  mutating func fillChallenges() -> Void {
     var randomChallenge = Challenge()
     for _ in 1...numberOfQuestions {
       while(challenges.contains(randomChallenge)){

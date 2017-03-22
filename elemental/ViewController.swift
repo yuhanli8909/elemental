@@ -30,7 +30,7 @@ class ViewController: UIViewController {
   
   //Interface Builder Actions
   
-  @IBAction func checkAnswer(_ sender: UIButton) {
+  @IBAction func checkAnswer(_ sender: UIButton) -> Void {
     timer.invalidate()
     timerLabel.text = ""
     
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     checkGameEnd()
   }
   
-  @IBAction func playAgain(_ sender: Any) {
+  @IBAction func playAgain(_ sender: Any) -> Void {
     quiz = Quiz()
     seconds = 15
     timer = Timer()
@@ -53,20 +53,20 @@ class ViewController: UIViewController {
   }
   
   
-  override func viewDidLoad() {
+  override func viewDidLoad() -> Void {
     super.viewDidLoad()
     // Start game
     resetTimer()
     displayQuizInformation()
   }
 
-  override func didReceiveMemoryWarning() {
+  override func didReceiveMemoryWarning() -> Void {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
   
-  func checkGameEnd() {
+  func checkGameEnd() -> Void {
     if quiz.currentChallengeIndex < quiz.challenges.count - 1 {
       quiz.currentChallengeIndex += 1
       loadNextRoundWithDelay(seconds: 2)
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
   }
   
-  func resetTimer() {
+  func resetTimer() -> Void {
     timer.invalidate()
     seconds = 15
     
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
   }
   
   
-  func countTime() {
+  func countTime() -> Void {
     seconds -= 1
     timerLabel.text = String(seconds)
     
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
   
   // Display if the answer was correct or not
   
-  func displayCorrectMessage(isCorrect: Bool) {
+  func displayCorrectMessage(isCorrect: Bool) -> Void {
     for button in choiceButtons {
       button.isHidden = true
     }
@@ -123,7 +123,7 @@ class ViewController: UIViewController {
   
   // Display all important information about the Quiz
   
-  func displayQuizInformation() {
+  func displayQuizInformation() -> Void {
     //resetTimer()
     gameInformation.isHidden = true
     playAgainButton.isHidden = true
@@ -136,7 +136,7 @@ class ViewController: UIViewController {
   
   // Display the question and the type of question 
   
-  func displayQuestionInformation() {
+  func displayQuestionInformation() -> Void {
     challengeInformation.text = quiz.questionText
     challengeType.text =  quiz.questionTypeText
   }
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
   
   // Display the choice to pick from including a guaranteed correct answer
   
-  func displayChoices() {
+  func displayChoices() -> Void {
     var choiceIndex: Int = 0
     for button in choiceButtons {
       button.isHidden = false
@@ -173,14 +173,14 @@ class ViewController: UIViewController {
   
   // Display how many correct out of the total number of questions available
   
-  func displayGameProgress() {
+  func displayGameProgress() -> Void {
     gameProgress.text = "Correct: \(quiz.numberCorrect)/\(quiz.numberOfQuestions)"
   }
   
   
   // MARK: Helper Methods
   
-  func loadNextRoundWithDelay(seconds: Int) {
+  func loadNextRoundWithDelay(seconds: Int) -> Void {
     // Converts a delay in seconds to nanoseconds as signed 64 bit integer
     let delay = Int64(NSEC_PER_SEC * UInt64(seconds))
     // Calculates a time value to execute the method given current time and delay
