@@ -70,7 +70,7 @@ struct Challenge {
   
   // Function to fill this array with choices to be presented to the user
   
-  mutating func fillAnswerTexts() {
+  mutating func fillAnswerTexts() -> Void {
     for answer in answers.answerSet {
       answerTexts.append(Challenge.getAnswerString(questionType: questionType, answer: answer))
     }
