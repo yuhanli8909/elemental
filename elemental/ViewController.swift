@@ -114,9 +114,9 @@ class ViewController: UIViewController {
     }
     gameInformation.isHidden = false
     if(isCorrect) {
-      gameInformation.text = "✅  That's correct!"
+      gameInformation.text = "✅ That's correct!"
     } else {
-      gameInformation.text = "❌  Sorry, the answer was \(quiz.answerText)"
+      gameInformation.text = "❌ Bummer! \nThe correct answer was \(quiz.answerText)"
     }
   }
   
